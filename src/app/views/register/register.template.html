@@ -1,0 +1,82 @@
+<div class="middle-box text-center loginscreen animated fadeInDown">
+	<div>
+		<div>
+			<h1 class="logo-name"><img src="assets/img/icon.png" class="m-b-sm"></h1>
+		</div>
+		<h3 class="m-b-sm">Welcome to Instant Touch</h3>
+		<alert *ngIf="hasErrors" type="danger">Username/Password is invalid.</alert>
+		<p>Create account.</p>
+		<form class="m-t" #f="ngForm" (ngSubmit)="submit()">
+			<div class="form-group">
+				<input name="username" type="text" class="form-control" placeholder="Username" required ngModel>
+			</div>
+			<div class="form-group">
+				<input name="email" type="email" class="form-control" placeholder="Email" required ngModel>
+			</div>
+			<div [ngClass]="{'has-error': (!confirm.valid && confirm.touched) || (!password.valid && password.touched)}" class="form-group">
+				<input #password="ngModel" name="password" type="password" class="form-control" placeholder="Password" validateEqual="confirm" reverse="true" required ngModel>
+			</div>
+			<div [ngClass]="{'has-error': !confirm.valid && confirm.touched}" class="form-group">
+				<input #confirm="ngModel" name="confirm" type="password" class="form-control" placeholder="Confirm Password" required ngModel validateEqual="password">
+			</div>
+			<hr />
+			<div class="form-group">
+				<select name="bank" class="form-control" required ngModel>
+					<option value>---Please select bank---</option>
+					<option value="access bank">Access Bank</option>
+					<option value="afri bank">Afri Bank</option>
+					<option value="citi bank">Citi Bank</option>
+					<option value="diamond bank">Diamond Bank</option>
+					<option value="eco bank">Eco Bank</option>
+					<option value="fcmb">FCMB</option>
+					<option value="fidelity bank">Fidelity Bank</option>
+					<option value="first bank of nigeria">First Bank of Nigeria</option>
+					<option value="gtb">GTB</option>
+					<option value="heritage bank">Heritage Bank</option>
+					<option value="keystone bank">Keystone Bank</option>
+					<option value="skye bank">Skye Bank</option>
+					<option value="stanbic ibtc bank">Stanbic IBTC Bank</option>
+					<option value="standard chartered bank">Standard Chartered Bank</option>
+					<option value="sterling bank">Sterling Bank</option>
+					<option value="uba">UBA</option>
+					<option value="union bank">Union Bank</option>
+					<option value="unity bank">Unity Bank</option>
+					<option value="wema bank">WEMA Bank</option>
+					<option value="zenith bank">Zenith Bank</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<input name="account_number" type="text" class="form-control" placeholder="Account Number" required ngModel="">
+			</div>
+			<div class="form-group">
+				<select name="plan" class="form-control" required ngModel>
+					<option value="">---Please select plan---</option>
+					<option value="1">Standard - &#8358;20,000</option>
+					<option value="2">Classic - &#8358;50,000</option>
+					<option value="3">Super - &#8358;100,000</option>
+				</select>
+			</div>
+			<hr />
+			<div class="form-group">
+				<input name="firstname" type="text" class="form-control" placeholder="Other Names" required ngModel>
+			</div>
+			<div class="form-group">
+				<input name="lastname" type="text" class="form-control" placeholder="Last Name" required ngModel>
+			</div>
+			<div [ngClass]="{'has-error': !phone.valid && phone.touched}" class="form-group">
+				<input #phone="ngModel" pattern="^(\+?234|0)(7|8|9)(0|1)\d{8}$" name="phone" type="text" class="form-control" placeholder="Phone Number" required ngModel>
+			</div>
+			<span class="text-danger" *ngIf="!phone.valid && phone.touched"> Your number is invalid</span>
+			<div class="form-group">
+				<div class="checkbox i-checks">
+					<label> <input name="tos" type="checkbox" required ngModel><i></i> Agree the terms and policy </label>
+				</div>
+			</div>
+			<button [disabled]="!f.valid" type="submit" class="btn btn-primary block full-width m-b">Register</button>
+
+			<p class="text-muted text-center"><small>Already have an account?</small></p>
+			<a class="btn btn-sm btn-white btn-block" [routerLink]="['/login']">Login</a>
+		</form>
+		<p class="m-t"> <small>© 2017 Instant Touch</small> </p>
+	</div>
+</div>

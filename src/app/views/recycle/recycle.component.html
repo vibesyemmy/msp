@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <img src="assets/img/instant_logo_white.png" class="logo">
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <h1>Eligible To Recycle</h1>
+      <p> You are required to recycle in <strong class="countdown">{{_hours  | number:'2.0-0'}}:{{_minutes | number:'2.0-0'}}:{{_seconds | number:'2.0-0'}}</strong>.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-sm-12">
+      <a *ngIf="!showPlan" class="btn btn-white block m-b-sm" (click)="renew()">Stay on previous package</a>
+      <a class="btn btn-white block m-b-sm" (click)="showPlans()">Choose new package</a>
+
+      <select *ngIf="showPlan" class="form-control m-b-sm" required [(ngModel)]="plan">
+        <option *ngFor="let p of plans" [ngValue]="p" [innerHtml]="p.value"></option>
+      </select>
+
+      <button *ngIf="showPlan" class="btn btn-success btn-block" (click)="changePackage()">Change Package</button>
+    </div>
+  </div>
+</div>

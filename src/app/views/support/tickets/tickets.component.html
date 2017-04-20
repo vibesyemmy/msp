@@ -1,0 +1,59 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-10">
+			<h2>Dashboard</h2>
+		</div>
+	</div>
+  <div class="row m-t-lg">
+		<div class="col-sm-12 col-md-4 col-lg-4">
+			<div class="ibox">
+				<div class="ibox-content">
+					<form (ngSubmit)="onSubmit()" #f="ngForm">
+						<div class="form-group">
+							<label>Contact Support</label>
+							<textarea name="text" #m="ngModel" ngModel required class="form-control" id=""></textarea>
+						</div>
+						<button [disabled]="!f.valid" type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+    <div class="col-lg-6 col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>Previous Messages</h5>
+					<div class="ibox-tools">
+						<a class="collapse-link">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+						<a class="close-link">
+							<i class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="ibox-content ibox-heading">
+					<h3><i class="fa fa-envelope-o"></i> Messages</h3>
+					<small><i class="fa fa-tim"></i> You have {{messages.length}} message(s).</small>
+				</div>
+				<div class="ibox-content">
+					<div class="feed-activity-list">
+
+						<div class="feed-element" *ngFor="let message of messages">
+							<div>
+								<small class="pull-right text-navy">{{message.createdAt | amTimeAgo}}</small>
+								<strong *ngIf="message.from.objectId === getUserId(); else otherName">Me</strong>
+                <ng-template #otherName>
+								  <strong>Support</strong>
+                </ng-template>
+								<div>{{message.text}}</div>
+								<!--<small class="text-muted">Today 5:60 pm - 12.06.2014</small>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+  </div>
+</div>

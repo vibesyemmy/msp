@@ -1,0 +1,107 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-10">
+			<h2>Admin Dashboard</h2>
+		</div>
+	</div>
+  <div class="wrapper wrapper-content">
+    <div class="row m-t-sm">
+      <div class="h-300">
+          <div class="col-md-4 ibox">
+            <div class="ibox-content">
+              <h5>Magic Matching Tool</h5>
+              <app-user-search-bar *ngIf="type.value == 0" [name]="'objectId'" [placeholder]="'User Id'" (keyUp)="getUsers($event)" (backspace)="onBackspace($event)" [class]="[]"></app-user-search-bar>
+              <app-admin-users-list [choosable]="false" *ngIf="users.length > 0" [users]="users" (onUserClick)="setUser($event)" [maxInbox]="2"></app-admin-users-list>
+            </div>
+          </div>
+          
+          <div *ngIf="user" class="col-md-4">
+            <div class="ibox-title">
+              <h2>User Info</h2>
+            </div>
+            <div class="ibox-content">
+              <h3>{{user?.firstname}} {{user?.lastname}}</h3>
+              <p>Username: {{user?.username}}</p>
+              <p>User id : {{user?.objectId}}</p>
+              <p>Plan    : {{user?.plan}}</p>
+              <p>Phone   : {{user?.phone}}</p>
+              <p>In Box Count : {{user?.in_box_count}}</p>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <app-admin-users-list 
+              *ngIf="donors.length > 0" 
+              [users]="donors" 
+              [choosable]="true"
+              [maxInbox]="1"
+              (onUserClick)="setDonor($event)">
+            </app-admin-users-list>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+
+  <div class="row m-t-sm">
+    <!-- Match card -->
+    <div class="col-lg-4">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Batch Match Tool</h5>
+          <iboxtools></iboxtools>
+        </div>
+        <div class="ibox-content">
+          <form (ngSubmit)="match()" #f="ngForm">
+            <div class="form-group">
+              <select name="plan" class="form-control" required ngModel>
+                <option value="">---Please select plan---</option>
+                <option value="1">Standard - &#8358;20,000</option>
+                <option value="2">Classic - &#8358;50,000</option>
+                <option value="3">Super - &#8358;100,000</option>
+              </select>
+            </div>
+            <button [disabled]="!f.valid" type="submit" class="btn btn-primary block full-width m-b">Match</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Send SMS card -->
+    <div class="col-lg-4">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Send SMS</h5>
+          <iboxtools></iboxtools>
+        </div>
+        <div class="ibox-content">
+          <form (ngSubmit)="sendSms()" #s="ngForm">
+            <div class="form-group">
+              <select name="type" id="" class="form-control" ngModel #type>
+                <option value="0">Individual Member</option>
+                <option value="1">Matched to GH</option>
+                <option value="2">Matched to PH</option>
+                <option value="3">Unmatched</option>
+                <option value="4">All</option>
+              </select>
+            </div>
+            
+            <app-user-search-bar 
+              *ngIf="type.value == 0" 
+              [name]="'objectId'" 
+              [placeholder]="'Username'" 
+              (keyUp)="checkUser($event)" 
+              [class]="[]">
+            </app-user-search-bar>
+            
+            <div [ngClass]="{'has-error': wordCount > 140}" class="form-group">
+              <textarea name="message" id="" cols="30" rows="5" class="form-control" #m="ngModel" (keyup)="setWordCount(m.value)" ngModel required></textarea>
+            </div>
+            <p [ngClass]="{'text-info': wordCount < 140, 'text-danger': wordCount > 140}" class="m-b-sm">{{wordCount}}</p>
+            <button [disabled]="!s.valid || wordCount > 140 || isSending" class="btn btn-primary block full-width m-b">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

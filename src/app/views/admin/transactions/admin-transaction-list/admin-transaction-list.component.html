@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Recent Transactions</h5>
+      </div>
+      <div class="ibox-content">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Beneficiary</th>
+              <th>Donor</th>
+              <th>Plan</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let trx of tranx">
+              <td [ngClass]="{'text-danger': trx.confirmation_status == 3}">{{trx.objectId}}</td>
+              <td [ngClass]="{'text-danger': trx.confirmation_status == 3}">{{trx.beneficiary.firstname}} {{trx.beneficiary.lastname}}</td>
+              <td [ngClass]="{'text-danger': trx.confirmation_status == 3}">{{trx.donor.firstname}} {{trx.donor.lastname}}</td>
+              <td [ngClass]="{'text-danger': trx.confirmation_status == 3}">{{getPlan(trx.plan)}}</td>
+              <td [ngClass]="{'text-danger': trx.confirmation_status == 3}">{{getConfirmationStatus(trx.confirmation_status)}}</td>
+              <td>
+                <a 
+                  [routerLink]="['../', trx.objectId ]" 
+                  [ngClass]="{'btn-danger': trx.confirmation_status == 3, 'btn-info': trx.confirmation_status < 3}" 
+                  class="btn">
+                  View
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

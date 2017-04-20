@@ -1,0 +1,23 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+	<div>
+		<div>
+			<h1 class="logo-name"><img src="assets/img/icon.png" class="m-b-sm"></h1>
+		</div>
+		<h3 class="m-b-sm">Welcome to Instant Touch</h3>
+		<alert *ngIf="hasErrors" type="danger">Username/Password is invalid.</alert>
+		<form class="m-t" (ngSubmit)="onSubmit()" #f="ngForm">
+			<div class="form-group">
+				<input name="username" type="text" class="form-control" placeholder="Username" required ngModel>
+			</div>
+			<div class="form-group">
+				<input name="password" type="password" class="form-control" placeholder="Password" required ngModel>
+			</div>
+			<button [disabled]="!f.valid" type="submit" class="btn btn-primary block full-width m-b">Login</button>
+
+			<a href="#"><small>Forgot password?</small></a>
+			<p class="text-muted text-center"><small>Do not have an account?</small></p>
+			<a class="btn btn-sm btn-white btn-block" [routerLink]="['/register']">Create an account</a>
+		</form>
+		<p class="m-t"> <small>© 2017 Instant Touch</small> </p>
+	</div>
+</div>

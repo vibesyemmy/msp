@@ -1,0 +1,25 @@
+<!-- Wrapper-->
+<div id="wrapper">
+
+	<!-- Left navigation bar -->
+	<navigation></navigation>
+
+	<!-- Main page wrapper -->
+	<div id="page-wrapper" class="gray-bg">
+
+		<!-- Top navigation -->
+		<topnavbar></topnavbar>
+
+		<!-- Main view/routes wrapper-->
+		<router-outlet></router-outlet>
+
+		<app-chat-widget [canShow]="!activeRoute('dash')"></app-chat-widget>
+
+		<!-- Footer -->
+		<footer></footer>
+
+	</div>
+	<!-- End page wrapper-->
+
+</div>
+<!-- End wrapper-->

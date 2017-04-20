@@ -1,0 +1,20 @@
+<div class="chat-discussion" #scrollMe>
+  <ng-container *ngFor="let m of messages">
+    <div class="chat-message {{getPosition(m.from.objectId)}}" >
+      <img *ngIf="m.from.objectId === userId; else adminImage" class="message-avatar" src="{{setGravatar(m.from.lemail)}}" alt="">
+      <ng-template #adminImage>
+        <img class="message-avatar" src="{{setGravatar('support@instanttouch.net')}}" alt="">
+      </ng-template>
+      <div class="message">
+        <a class="message-author" *ngIf="m.from.objectId === userId; else adminName"> {{m.from.firstname}} {{m.from.lastname}}</a>
+        <ng-template #adminName>
+          <a class="message-author">Support</a>
+        </ng-template>
+        <!--<span class="message-date"> {{timeAgo(m.createdAt)}} </span>-->
+        <span class="message-content">
+          {{m.text}}
+        </span>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,18 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div>
+			<h1 class="logo-name"><img src="assets/img/icon.png" class="m-b-sm"></h1>
+		</div>
+    <h3 class="m-b-sm">Welcome to Instant Touch</h3>
+    <p>Your account is inactive. Please click on the button below to get your security code.</p>
+    <button [disabled]="isCodeSent" class="btn btn-primary block full-width m-b" (click)="resend()">Send Code</button>
+    <alert *ngIf="hasErrors" type="danger">Verification code is invalid.</alert>
+    <form class="m-t" (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="form-group">
+        <input name="code" type="text" class="form-control" placeholder="Enter Security Code" required ngModel>
+      </div>
+      <button [disabled]="!f.valid" type="submit" class="btn btn-primary block full-width m-b">Verify</button>
+      <a class="btn btn-sm btn-white btn-block" (click)="logout()">Logout</a>
+    </form>
+  </div>
+</div>

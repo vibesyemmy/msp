@@ -1,0 +1,98 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-10">
+			<h2>Dashboard</h2>
+		</div>
+	</div>
+	<div class="row m-t-lg">
+		<div class="col-sm-12 col-md-3 col-lg-4">
+			<div class="ibox-content text-center">
+				<div class="m-b-sm m-t-sm">
+					<img alt="image" class="img-circle" src="{{gravatarUrl}}">
+				</div>
+				<h1>{{userUtil.getUsername(currentUser)}}</h1>
+				<p class="font-bold">{{userUtil.selectKey(currentUser, 'email')}}</p>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-7 col-lg-8">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>Edit Profile</h5>
+					<iboxtools></iboxtools>
+				</div>
+				<div class="ibox-content">
+					<div class="row">
+						<div class="col-sm-6 b-r">
+							<h3 class="m-t-none m-b">Change Password</h3>
+							<form (ngSubmit)="changePassword()" #p="ngForm">
+								<div class="form-group">
+									<label>Password</label> 
+									<input type="password" class="form-control" name="password" 
+										[ngModel]="user.password" required validateEqual="confirmPassword" reverse="true">
+								</div>
+								<div class="form-group">
+									<label>Confirm</label> 
+									<input type="password" class="form-control" name="confirmPassword"  
+										[ngModel]="user.confirmPassword" required validateEqual="password">
+								</div>
+								<div>
+									<button [disabled]="!p.valid" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
+										<strong>Change</strong>
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="col-sm-6">
+							<h3 class="m-t-none m-b">Edit Bank Information</h3>
+							<form (ngSubmit)="updateAccount()" #b="ngForm">
+								<div class="form-group">
+									<label>Account Name</label> 
+									<input class="form-control" type="text" name="account_name" [ngModel]="bank.account_name" disabled>
+								</div>
+								<div class="form-group">
+									<label>Account Number</label> 
+									<input class="form-control" type="text" name="account_number" [ngModel]="bank.account_number" required>
+								</div>
+								<div class="form-group">
+									<label>Bank</label> 
+									<select name="bank" class="form-control" [ngModel]="bank.bank" required>
+										<option value="">---Please select bank---</option>
+										<option value="access bank">Access Bank</option>
+										<option value="afri bank">Afri Bank</option>
+										<option value="citi bank">Citi Bank</option>
+										<option value="diamond bank">Diamond Bank</option>
+										<option value="eco bank">Eco Bank</option>
+										<option value="fcmb">FCMB</option>
+										<option value="fidelity bank">Fidelity Bank</option>
+										<option value="first bank of nigeria">First Bank of Nigeria</option>
+										<option value="gtb">GTB</option>
+										<option value="heritage bank">Heritage Bank</option>
+										<option value="keystone bank">Keystone Bank</option>
+										<option value="skye bank">Skye Bank</option>
+										<option value="stanbic ibtc bank">Stanbic IBTC Bank</option>
+										<option value="standard chartered bank">Standard Chartered Bank</option>
+										<option value="sterling bank">Sterling Bank</option>
+										<option value="uba">UBA</option>
+										<option value="union bank">Union Bank</option>
+										<option value="unity bank">Unity Bank</option>
+										<option value="wema bank">WEMA Bank</option>
+										<option value="zenith bank">Zenith Bank</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Phone Number</label> 
+									<input class="form-control" type="text" name="phone" [ngModel]="bank.phone" required>
+								</div>
+								<div>
+									<button [disabled]="!b.valid" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
+										<strong>Update</strong>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

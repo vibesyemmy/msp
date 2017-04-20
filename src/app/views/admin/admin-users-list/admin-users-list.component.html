@@ -1,0 +1,14 @@
+<ul class="sortable-list connectList agile-list">
+  <li class="success-element ui-sortable-handle" *ngFor="let user of users | inboxCount:maxInbox" (click)="onUserClick(user)">
+      <strong class="text-capitalize">{{user.firstname}} {{user.lastname}}</strong>
+      <br>
+      <small>{{user.username}}</small>
+      <br>
+      <small class="text-muted">{{user.email}}</small>
+      <br>
+      <small class="text-muted">{{user.phone}}</small>
+    <!--<div *ngIf="clickable" class="agile-detail">
+      <a class="pull-right btn btn-xs btn-white">Match</a>
+    </div>-->
+  </li>
+</ul>

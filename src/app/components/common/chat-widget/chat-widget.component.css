@@ -1,0 +1,15 @@
+.slimScrollDiv {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: auto;
+  height: 234px;
+}
+
+.small-chat-box {
+  bottom: 60px;
+}
+
+.chat-message {
+  word-break: break-all;
+}

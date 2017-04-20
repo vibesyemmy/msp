@@ -1,0 +1,66 @@
+<!--TODO: Remove static data-->
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-10">
+			<h2>Dashboard</h2>
+		</div>
+	</div>
+
+	<div class="row m-t-lg">
+		<div class="row">
+			<div *ngIf="b.length > 0 && b.length < 4" class="col-md-12 col-xs-12">
+				<div class="widget p-lg">
+					<h2 class="m-xs">Current Donations</h2>
+				</div>
+				<div *ngIf="b[0] != null" class="col-md-4">
+					<app-ph-card [box]="b[0]"></app-ph-card>
+				</div>
+				<div *ngIf="b[1] != null" class="col-md-4">
+					<app-ph-card [box]="b[1]"></app-ph-card>
+				</div>
+				<div *ngIf="b[2] != null" class="col-md-4">
+					<app-ph-card [box]="b[2]"></app-ph-card>
+				</div>
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-sm-12 m-t-xl">
+
+				<div *ngIf="history.length > 0; else nohistory" class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>Recent Donations</h5>
+						<iboxtools></iboxtools>
+					</div>
+					<div class="ibox-content">
+						<table class="table table-hover no-margins">
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Donor</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let h of history">
+									<td><i class="fa fa-clock-o"></i> 10:40am</td>
+									<td>{{h.donor.firstname}} {{h.donor.lastname}}</td>
+									<td class="text-navy">&#8358;{{getPay(h.plan) | number:'1.2-2'}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<ng-template #nohistory>
+					<div class="widget navy-bg p-lg text-center">
+						<div class="m-b-md">
+							<i class="fa fa-warning fa-4x"></i>
+							<h1>No records found</h1>
+							<h3 class="font-bold no-margins">Pledge to be eligable.</h3>
+						</div>
+					</div>
+				</ng-template>
+			</div>
+		</div>
+	</div>
+</div>

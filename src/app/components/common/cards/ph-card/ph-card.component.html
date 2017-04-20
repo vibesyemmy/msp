@@ -1,0 +1,13 @@
+<div class="widget navy-bg p-lg">
+  <h2>
+    {{box.donor.firstname}} {{box.donor.lastname}}
+  </h2>
+  <h4>&#8358;{{getPlan() | number : '1.2-2'}}</h4>
+  <ul class="list-unstyled m-t-md">
+    <li>
+      <span class="fa fa-phone m-r-xs"></span>
+      <label>Contact:</label> {{box.donor.phone}}
+    </li>
+  </ul>
+  <a *ngIf="box.confirmation_status < 2" (click)="c()" class="btn btn-success">Confirm Payment</a>
+</div>

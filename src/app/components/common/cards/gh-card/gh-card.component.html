@@ -1,0 +1,38 @@
+<div *ngIf="awaiting" class="widget red-bg p-lg text-center">
+  <i class="fa fa-warning fa-4x"></i>
+  <h1>
+    Awaiting Match
+  </h1>
+  <h4>You'll be matched between 24 hours to 7 days</h4>
+</div>
+<div *ngIf="!awaiting && box != null" [ngClass]="{'red-bg':awaiting || box.confirmation_status == 0, 'navy-bg': box.confirmation_status == 1}" class="widget p-lg">
+  <h2>
+    {{box.beneficiary.firstname}} {{box.beneficiary.lastname}}
+  </h2>
+  <h4>&#8358;{{getPlan() | number : '1.2-2'}}</h4>
+  <p *ngIf="box.confirmation_status == 0">Pay before: {{status.start}}</p>
+  <ul class="list-unstyled m-t-md">
+    <li>
+      <span class="fa fa-university m-r-xs"></span>
+      <label>Bank Name:</label> {{box.beneficiary.bank}}
+    </li>
+    <li>
+      <span class="fa fa-sort-numeric-asc m-r-xs"></span>
+      <label>Account Number:</label> {{box.beneficiary.account_number}}
+    </li>
+    <li>
+      <span class="fa fa-phone m-r-xs"></span>
+      <label>Contact:</label> {{box.beneficiary.phone}}
+    </li>
+  </ul>
+  <a *ngIf="box.confirmation_status == 0"  (click)="makePayment(box.objectId)" class="btn btn-info">Make Payment</a>
+
+  <a
+    *ngIf="box.confirmation_status == 0" 
+    (click)="decline(box.objectId)" 
+    tooltip="This action deletes your account" 
+    placement="right" 
+    class="btn btn-warning">Decline
+  </a>
+  <p *ngIf="box.confirmation_status == 1"> Awaiting confirmation</p>
+</div>

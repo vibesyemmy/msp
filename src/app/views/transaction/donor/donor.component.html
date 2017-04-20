@@ -1,0 +1,62 @@
+<!--TODO: Remove static data-->
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-10">
+			<h2>Dashboard</h2>
+		</div>
+	</div>
+
+	<div class="row m-t-lg">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="widget p-lg">
+					<h2 class="m-xs">Current Donations</h2>
+				</div>
+				<div *ngIf="d[0] != null">
+					<app-gh-card class="col-md-4" [box]="d[0]" [status]="getDeadline(d[0].createdAt)"></app-gh-card>
+				</div>
+				<div *ngIf="d[1] != null">
+					<app-gh-card class="col-md-4" [box]="d[1]" [status]="getDeadline(d[1].createdAt)"></app-gh-card>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-lg-8">
+
+				<div *ngIf="history.length > 0; else nohistory" class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>Recent Donations</h5>
+						<iboxtools></iboxtools>
+					</div>
+					<div class="ibox-content">
+						<table class="table table-hover no-margins">
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Donor</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let box of history">
+									<td><i class="fa fa-clock-o"></i> {{box.createdAt | date}}</td>
+									<td>{{box.beneficiary.firstname}} {{box.beneficiary.lastname}}</td>
+									<td class="text-danger">&#8358;{{getPlan(box.plan) | number:'1.2-2'}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<ng-template #nohistory>
+					<div class="widget navy-bg p-lg text-center">
+						<div class="m-b-md">
+							<i class="fa fa-warning fa-4x"></i>
+							<h1>No records found</h1>
+							<h3 class="font-bold no-margins">You will be matched between 24 hours to 7 days.</h3>
+						</div>
+					</div>
+				</ng-template>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,62 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+	<div class="sidebar-collapse">
+		<a class="close-canvas-menu" (click)="toggleNavigation()"><i class="fa fa-times"></i></a>
+		<ul class="nav metismenu" id="side-menu">
+			<li class="nav-header">
+				<div class="dropdown profile-element">
+					<div class="row">
+						<img src="assets/img/instant_logo_white.png">
+					</div>
+					<img src="{{getGravatar(currentUser)}}" class="img-circle m-t-md">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+						<span *ngIf="currentUser" class="block m-t-xs"> <strong class="font-bold">{{currentUser.username}}</strong> </span>
+						<span class="text-muted text-xs block">Options <b class="caret"></b> </span>
+					</a>
+					<ul class="dropdown-menu animated fadeInRight m-t-xs">
+						<li><a href="#">Logout</a></li>
+					</ul>
+				</div>
+				<div class="logo-element">
+					<img src="assets/img/icon.png">
+				</div>
+			</li>
+			<li *ngIf="currentUser.role == 1" [ngClass]="{active: activeRoute('admin')}">
+				<a [routerLink]="['/admin']">
+					<i class="fa fa-tachometer"></i><span class="nav-label">Admin</span>
+				</a>
+			</li>
+			<li *ngIf="currentUser.role == 0" [ngClass]="{active: activeRoute('dash')}">
+				<a [routerLink]="['/admin']">
+					<i class="fa fa-tachometer"></i><span class="nav-label">Tech Admin</span>
+				</a>
+			</li>
+			<li *ngIf="currentUser && (currentUser.role == 0 || currentUser.role == 1)" [ngClass]="{active: activeRoute('support')}">
+				<a [routerLink]="['/admin','support']">
+					<i class="fa fa-tachometer"></i><span class="nav-label">Support</span>
+				</a>
+			</li>
+			<li [ngClass]="{active: activeRoute('dashboard')}">
+				<a [routerLink]="['/dashboard']"><i class="fa fa-tachometer"></i> <span class="nav-label">Dashboard</span></a>
+			</li>
+			<li [ngClass]="{active: activeRoute('profile')}">
+				<a [routerLink]="['/user', 'profile']"><i class="fa fa-user-circle"></i> <span class="nav-label">User Profile</span> </a>
+			</li>
+			<li [ngClass]="{active: activeRoute('donor')}">
+				<a [routerLink]="['/transaction','donor']"><i class="fa fa-level-up"></i> <span class="nav-label">My Donations</span> </a>
+			</li>
+			<li [ngClass]="{active: activeRoute('beneficiary')}">
+				<a [routerLink]="['/transaction','beneficiary']"><i class="fa fa-level-down"></i> <span class="nav-label">Donations Received</span> </a>
+			</li>
+			<li *ngIf="currentUser.role == 4">
+				<a [routerLink]="['/ticket']"><i class="fa fa-commenting"></i> <span class="nav-label">Support</span> </a>
+			</li>
+			<li [ngClass]="{active: activeRoute('beneficiary')}">
+				<a [routerLink]="['/testimonial']"><i class="fa fa-level-down"></i> <span class="nav-label">Testimonials</span> </a>
+			</li>
+			<li>
+				<a (click)="logout()"><i class="fa fa-sign-out"></i> <span class="nav-label">Logout</span> </a>
+			</li>
+		</ul>
+
+	</div>
+</nav>

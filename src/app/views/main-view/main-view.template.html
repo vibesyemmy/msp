@@ -1,0 +1,110 @@
+<!--TODO: Remove static data-->
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-10">
+			<h2>Dashboard</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="text-center col-lg-12 m-t-lg m-b-lg">
+				<h1>
+					ANNOUNCEMENT
+				</h1>
+				<p>
+					<small>
+						We the team of Instant Touch wish to thank you for your participation. We wish to confidently inform you that this will be a profitable venture for you and every other member in our platform.
+					</small>
+				</p>
+				<p>
+					<small>
+						We are dedicated to providing you a safe and secure platform. For this reason, we have enacted some stringent policies to keep our platform very safe and secured.
+					</small>
+				</p>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="widget red-bg p-lg text-center">
+						<div class="m-b-md">
+							<i class="fa fa-handshake-o fa-4x"></i>
+							<h1 class="m-xs">{{currentMatches}}</h1>
+							<h3 class="font-bold no-margins">
+								Match
+							</h3>
+							<small>View match.</small>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="widget lazur-bg p-lg text-center">
+						<div class="m-b-md">
+							<i class="fa fa-send-o fa-4x"></i>
+							<h1 class="m-xs">{{prevDonations}}</h1>
+							<h3 class="font-bold no-margins">
+								Donations Made
+							</h3>
+							<small><a [routerLink]="['/transaction','donor']">View all donations made</a></small>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="widget yellow-bg p-lg text-center">
+						<div class="m-b-md">
+							<i class="fa fa-usd fa-4x"></i>
+							<h1 class="m-xs">{{prevBenefits}}</h1>
+							<h3 class="font-bold no-margins">
+								Donations Received
+							</h3>
+							<small><a [routerLink]="['/transaction','beneficiary']">View all donations received</a></small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="widget navy-bg no-padding">
+						<div class="p-m">
+							<h1 class="m-xs">&#8358;{{totalDonation | number : '1.2-2'}}</h1>
+
+							<h3 class="font-bold no-margins">
+								Total donations
+							</h3>
+							<small>Total value of donations made in the platform.</small>
+						</div>
+						<div class="flot-chart dashboard-chart">
+							<div flotChart class="flot-chart-content" [options]="flotOptions" [dataset]="flotDataset"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Recent Donations</h5>
+							<iboxtools></iboxtools>
+						</div>
+						<div class="ibox-content">
+							<table class="table table-hover no-margins">
+								<thead>
+									<tr>
+										<th>Date</th>
+										<th>Donor</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let tx of recentTransactions">
+										<td><i class="fa fa-clock-o"></i> {{tx.createdAt.iso | date}}</td>
+										<td>{{tx.fullname}}</td>
+										<td class="text-navy">&#8358;{{getPlanAmmount(tx.plan) | number:'1.2-2'}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
