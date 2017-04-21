@@ -78,7 +78,7 @@ export class ChatRoomsComponent implements OnInit, OnDestroy {
   send(message, m) {
     m.value = "";
     if (this.threadId && this.userId) {
-      this.msService.sendChat(message, this.threadId, JSON.parse(localStorage.getItem("currentUser")).id, this.userId, 0, 'support@instanttouch.net')
+      this.msService.sendChat(message, this.threadId, JSON.parse(localStorage.getItem("currentUser")).id, this.userId, 0, 'support@myswyftpay.com')
         .subscribe(
         (t) => {
           m.value = "";

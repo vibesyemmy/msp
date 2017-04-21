@@ -12,7 +12,7 @@ module.exports = service;
 var auth = {
 	auth: {
 		api_key: 'key-501d4bc0308a9d02be2cb02910a2330d',
-		domain: 'instanttouch.net'
+		domain: 'myswyftpay.com'
 	}
 }
 
@@ -22,7 +22,7 @@ let smtpConfig = {
 	port: 465,
 	secure: true, // upgrade later with STARTTLS
 	auth: {
-		user: 'support@instanttouch.net',
+		user: 'support@myswyftpay.com',
 		pass: 'admin2017'
 	}
 };

@@ -106,7 +106,7 @@ export class ChatRoomComponent implements OnInit {
     if (!this.threadId) {
       this.onSend.emit(false);
     } else {
-      this.msService.sendChat(text, this.threadId, JSON.parse(localStorage.getItem("currentUser")).id, this.userId, 0, 'support@instanttouch.net')
+      this.msService.sendChat(text, this.threadId, JSON.parse(localStorage.getItem("currentUser")).id, this.userId, 0, 'support@myswyftpay.com')
         .subscribe(
         (t) => this.onSend.emit(true)
         );

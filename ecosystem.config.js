@@ -57,8 +57,8 @@ module.exports = {
 }
 
 function db() {
-  let user = "admin";
-  let pass = "admin";
-  let url = "mongodb://"+user + ":" + pass +"@ds063406.mlab.com:63406/instanttouch";
+  let user = "vibesyemmy";
+  let pass = "Chestnut2012@";
+  let url = "mongodb://"+user + ":" + pass +"@ds161400.mlab.com:61400/exchange";
   return url;
 }
