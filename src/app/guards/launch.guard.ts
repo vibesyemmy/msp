@@ -3,7 +3,7 @@ import { Injectable, Inject } from '@angular/core';
 
 @Injectable()
 export class LaunchGuard implements CanActivate {
-  endDate = Date.parse("2017-04-19:12:00");
+  endDate = Date.parse("2017-04-24:12:00");
   constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -11,7 +11,8 @@ export class LaunchGuard implements CanActivate {
     if (t3 > 0) {
       // logged in so return true
       // location.href = '/coming';
-      return true;
+      console.log(t3);
+      this.router.navigate(['/coming']);
     } else {
       // not logged in so redirect to login page
       return true;

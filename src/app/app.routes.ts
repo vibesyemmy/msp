@@ -38,7 +38,7 @@ import { ChatStartComponent } from './views/admin/support/chat/chat-start/chat-s
 
 export const ROUTES: Routes = [
   // Main redirect
-  { path: '', component: LandingComponent, canActivate: [LandingGuard], pathMatch: 'full' },
+  { path: '', component: LandingComponent, canActivate: [LaunchGuard, LandingGuard], pathMatch: 'full' },
 
   // App views
   {
@@ -71,8 +71,8 @@ export const ROUTES: Routes = [
       { path: 'inactive', component: InactiveUserComponent },
       { path: 'suspended', component: SuspendedUserComponent },
       { path: 'recycle', component: RecycleComponent, canActivate: [AuthenticateGuard, IsActiveGuard, IsSuspendedGuard] },
-      { path: '404', component: PageNotFoundComponent }
-      // { path: 'coming', component: ComingComponent }
+      { path: '404', component: PageNotFoundComponent },
+      { path: 'coming', component: ComingComponent }
     ]
   },
   { path: 'admin', redirectTo: 'admin/dash', pathMatch: 'full' },

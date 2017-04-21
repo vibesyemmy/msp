@@ -108,9 +108,9 @@ app.use('/f', dashboard);
 app.use('/public', express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '/assets')));
 
-app.get('/coming', (req, res) =>{
-	res.render("landing");
-});
+// app.get('/coming', (req, res) =>{
+// 	res.render("landing");
+// });
 // Auth routes
 app.use('/api', require(path.join(__dirname, '/routes/auth.route.js')));
 
