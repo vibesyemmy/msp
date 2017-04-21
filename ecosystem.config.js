@@ -37,7 +37,7 @@ module.exports = {
       user : "root",
       host : "104.207.132.52",
       ref  : "origin/master",
-      repo : "git@github.com:CodeHaven9ja/p2.git",
+      repo : "git@github.com:CodeHaven9ja/msp.git",
       path : "/var/www/msp",
       "pre-setup" : "npm i -g pm2",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.config.js --env production"
