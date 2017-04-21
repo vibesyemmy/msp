@@ -632,10 +632,10 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   color: #8f1789;
 }
 .btn-success.btn-outline {
-  color: #1c84c6;
+  color: #8f1789;
 }
 .btn-info.btn-outline {
-  color: #23c6c8;
+  color: #8f1789
 }
 .btn-warning.btn-outline {
   color: #f8ac59;
@@ -664,8 +664,8 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 .btn-primary:active:hover,
 .btn-primary.active:hover,
 .btn-primary.active:focus {
-  background-color: #18a689;
-  border-color: #18a689;
+  background-color: #8f1789;
+  border-color: #8f1789;
   color: #FFFFFF;
 }
 .btn-primary:active,
@@ -7310,8 +7310,8 @@ body.landing-page {
 .landing-page fieldset[disabled] .btn-primary:focus,
 .landing-page fieldset[disabled] .btn-primary:active,
 .landing-page fieldset[disabled] .btn-primary.active {
-  background-color: #1dc5a3;
-  border-color: #1dc5a3;
+  background-color: #8f2544;
+  border-color: #8f2544;
 }
 
 .navbar-brand>img {
