@@ -231,7 +231,7 @@ function sms(user, message, code) {
 				"apikey": "55d46d59dbadbd21fdf7e601c60fad68c48670de"
 			},
 			"message": {
-				"sender": "INSTTOUCH",
+				"sender": "MSP",
 				"messagetext": message,
 				"flash": "0"
 			},

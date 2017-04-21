@@ -176,8 +176,7 @@ export class TransactionService {
       headers: headers,
       params: {
         "where": {
-          "beneficiary": this.u(this.cu.id),
-          "confirmation_status": 2
+          "beneficiary": this.u(this.cu.id)
         },
         include: ["donor", "beneficiary"],
         limit: 5

@@ -19,11 +19,11 @@ export class UserUtil {
   }
   getPlan(id:number):number {
     if (id == 1) {
-      return 20000;
+      return 10000;
     } else if (id == 2) {
-      return 50000;
+      return 20000;
     } else {
-      return 100000;
+      return 50000;
     }
   }
   getPay(plan:number):number {
