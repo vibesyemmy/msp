@@ -23,7 +23,7 @@ let smtpConfig = {
 	secure: true, // upgrade later with STARTTLS
 	auth: {
 		user: 'support@myswyftpay.com',
-		pass: 'admin2017'
+		pass: 'Chestnut2012@'
 	}
 };
 
