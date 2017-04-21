@@ -7,7 +7,7 @@ module.exports = {
 
     // First application
     {
-      name      : "instant-touch",
+      name      : "myswyftpay",
       script    : "index.js",
       env: {
         COMMON_VARIABLE: "true"
@@ -16,13 +16,13 @@ module.exports = {
         NODE_ENV:             "production",
         APP_ID:               "VMvhutWAGNpk78QXprTt",
         MASTER_KEY:           "8zqndJmKVnQER6aXsnWR",
-        DOMAIN_NAME:          "instanttouch.net",
+        DOMAIN_NAME:          "myswyftpay.com",
         MONGODB_URI:          db(),
         MAILGUN_API_KEY:      "key-9vmhz-shoqd2qm8votyipmtnh-m9xjg6",
         PARSE_MOUNT:          "/1",
-        PARSE_SERVER_URI:     "https://instanttouch.net",
-        PUB_SERVER_URL:       "https://instanttouch.net",
-        PORT:                 "3070",
+        PARSE_SERVER_URI:     "https://myswyftpay.com",
+        PUB_SERVER_URL:       "https://myswyftpay.com",
+        PORT:                 "3080",
         END_DATE:             "2017-04-19:12:00:00"
       }
     },
@@ -38,7 +38,7 @@ module.exports = {
       host : "104.207.132.52",
       ref  : "origin/master",
       repo : "git@github.com:CodeHaven9ja/p2.git",
-      path : "/var/www/production",
+      path : "/var/www/msp",
       "pre-setup" : "npm i -g pm2",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.config.js --env production"
     },
