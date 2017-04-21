@@ -1,6 +1,8 @@
 var express = require('express');
+var subdomain = require('express-subdomain');
 var path = require('path');
 var ParseServer = require('parse-server').ParseServer;
+var ParseDashboard = require('parse-dashboard');
 var bodyParser = require('body-parser');
 
 var moment = require('moment');
@@ -14,7 +16,7 @@ app.set('port', port);
 // Serve the Parse API on the /parse URL prefix
 var mountPath = process.env.PARSE_MOUNT || '/1';
 
-var databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/ponzi';
+var databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/ponzi2';
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
@@ -58,6 +60,31 @@ app.use(bodyParser.urlencoded({
 // parse application/json 
 app.use(bodyParser.json());
 
+var dashboard = new ParseDashboard({
+  "apps" : [
+    {
+      "serverURL": "http://localhost:3080/1",
+      "appId": "VMvhutWAGNpk78QXprTt",
+      "masterKey": "8zqndJmKVnQER6aXsnWR",
+      "appName": "Myswyftpay local"
+    },
+    {
+      "serverURL": "https://myswyftpay.com/1",
+      "appId": "VMvhutWAGNpk78QXprTt",
+      "masterKey": "8zqndJmKVnQER6aXsnWR",
+      "appName": "Myswyftpay.com"
+    }
+  ],
+  "users" : [
+    {
+      "user":"pikin",
+      "pass":"admin2017"
+    }
+  ]
+});
+
+
+
 // Configure app
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -73,6 +100,10 @@ app.use('/', express.static(path.join(__dirname, '../dist')));
 //     return res.render("landing");
 //   });
 // }
+
+// subdomain
+// app.use(subdomain('admin', dashboard));
+app.use('/f', dashboard);
 
 app.use('/public', express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '/assets')));

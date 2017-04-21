@@ -59,6 +59,6 @@ module.exports = {
 function db() {
   let user = "vibesyemmy";
   let pass = "Chestnut2012@";
-  let url = "mongodb://"+user + ":" + pass +"@ds161400.mlab.com:61400/exchange";
+  let url = "mongodb://"+user + ":" + pass +"@ds139725.mlab.com:39725/myswyftpay";
   return url;
 }
