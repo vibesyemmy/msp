@@ -11,11 +11,12 @@ export class LaunchGuard implements CanActivate {
     if (t3 > 0) {
       // logged in so return true
       // location.href = '/coming';
-      console.log(t3);
-      this.router.navigate(['/coming']);
-    } else {
-      // not logged in so redirect to login page
+      // console.log(t3);
+      // this.router.navigate(['/coming']);
       return true;
+    } else {
+      return true;
+      // not logged in so redirect to login page
     }
   }
 
