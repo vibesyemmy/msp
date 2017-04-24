@@ -176,16 +176,16 @@ function sendEmail(user, opts) {
 
 function createTextEmail(user) {
 	var text = "Hello, "+user.get("username")+"\n";
-	text += "Thank you for your interest in becoming a member of Myswyfypay. We are pleased to welcome you into our community. We assure you that your decision to be part of us, is one you will always live to celebrate. \n";
-	text += "Myswyfypay is not just an added number to the already existing donation platforms, rather we are here with an ideology that is resilient and represents who we are and what we stand for. \n";
-	text += "Myswyfypay peer to peer donation platform have improved on the flaws of other platforms. In other words, our principle, ideology and structure is one that will withstand the deluge of challenges that has led to the cessation of other platforms. \n";
-	text += "Take a step in achieving your dreams. Feel free to contact us and ensure to like us on Facebook so as to get updated with new developments on Myswyfypay. \n \n";
+	text += "Thank you for your interest in becoming a member of Myswyftpay. We are pleased to welcome you into our community. We assure you that your decision to be part of us, is one you will always live to celebrate. \n";
+	text += "Myswyftpay is not just an added number to the already existing donation platforms, rather we are here with an ideology that is resilient and represents who we are and what we stand for. \n";
+	text += "Myswyftpay peer to peer donation platform have improved on the flaws of other platforms. In other words, our principle, ideology and structure is one that will withstand the deluge of challenges that has led to the cessation of other platforms. \n";
+	text += "Take a step in achieving your dreams. Feel free to contact us and ensure to like us on Facebook so as to get updated with new developments on Myswyftpay. \n \n";
 	text += "Regards, \n";
-	text += "TEAM Myswyfypay \n";
+	text += "TEAM Myswyftpay \n";
 	text += "NOTE:  In this platform, recycling is the cornerstone, thus, hit and run is clipped, you either hit and stay or hit but while running away, you leave something behind for other members. \n";
 	text += "support@myswyftpay.com\n";
 	text += "https://facebook.com/myswyftpayng \n";
-	text += "Myswyfypay copyright 2017";
+	text += "Myswyftpay copyright 2017";
 	text += "Follow this link to join our Telegram group: https://t.me/joinchat/AAAAAEGo_fEW0U22V8l3Qw";
 
 	return text;
@@ -193,17 +193,17 @@ function createTextEmail(user) {
 
 function createHTMLEmail(user) {
 	var html = "<p>Hello, <b>"+user.get("username")+"</b></p>";
-	html += "<p>Thank you for your interest in becoming a member of <b>Myswyfypay</b>. We are pleased to welcome you into our community. We assure you that your decision to be part of us, is one you will always live to celebrate.</p>";
-	html += "<p><b>Myswyfypay</b> is not just an added number to the already existing donation platforms, rather we are here with an ideology that is resilient and represents who we are and what we stand for.</p>";
-	html += "<p><b>Myswyfypay</b> peer to peer donation platform have improved on the flaws of other platforms. In other words, our principle, ideology and structure is one that will withstand the deluge of challenges that has led to the cessation of other platforms.</p>";
-	html += "<p>Take a step in achieving your dreams. Feel free to contact us and ensure to like us on Facebook so as to get updated with new developments on Myswyfypay.</p>";
+	html += "<p>Thank you for your interest in becoming a member of <b>Myswyftpay</b>. We are pleased to welcome you into our community. We assure you that your decision to be part of us, is one you will always live to celebrate.</p>";
+	html += "<p><b>Myswyftpay</b> is not just an added number to the already existing donation platforms, rather we are here with an ideology that is resilient and represents who we are and what we stand for.</p>";
+	html += "<p><b>Myswyftpay</b> peer to peer donation platform have improved on the flaws of other platforms. In other words, our principle, ideology and structure is one that will withstand the deluge of challenges that has led to the cessation of other platforms.</p>";
+	html += "<p>Take a step in achieving your dreams. Feel free to contact us and ensure to like us on Facebook so as to get updated with new developments on Myswyftpay.</p>";
 	html += "<p>Regards,</p>";
-	html += "<p><b>TEAM Myswyfypay</b></p>";
+	html += "<p><b>TEAM Myswyftpay</b></p>";
 	html += "<br/>";
 	html += "<p><b>NOTE:</b> In this platform, recycling is the cornerstone, thus, hit and run is clipped, you either hit and stay or hit but while running away, you leave something behind for other members.</p>";
 	html += "<p><a mailto=\"support@myswyftpay.com\">support@myswyftpay.com</a> </p>";
 	html += "<p><a href=\"https://facebook.com/myswyftpayng\">https://facebook.com/myswyftpayng</a></p>";
-	html += "<p><b>Myswyfypay</b> copyright 2017</p>";
+	html += "<p><b>Myswyftpay</b> copyright 2017</p>";
 	html += "<p>Follow this link to join our Telegram group: <a href=\"https://t.me/joinchat/AAAAAEGo_fEW0U22V8l3Qw\">https://t.me/joinchat/AAAAAEGo_fEW0U22V8l3Qw</a><p>";
 
 	return html;
@@ -211,7 +211,7 @@ function createHTMLEmail(user) {
 
 function getMailOptions(user) {
 	let opt = {
-		from: '"Myswyfypay Admin" <support@myswyftpay.com>', // sender address
+		from: '"Myswyftpay Admin" <support@myswyftpay.com>', // sender address
 		// to: user.get("email"), // list of receivers
 		subject: 'Welcome ✔', // Subject line
 		text: createTextEmail(user), // plain text body
