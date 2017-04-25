@@ -24,7 +24,7 @@ export class ComingComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    this._trialEndsAt = "2017-04-24:12:00";
+    this._trialEndsAt = "2017-04-27:12:00";
     this.sub = Observable.interval(1000).map((x) => {
       this._diff = Date.parse(this._trialEndsAt) - Date.parse(new Date().toString());
     }).subscribe((x) => {
